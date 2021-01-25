@@ -6,8 +6,10 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+
 let transactions = [];
 let myChart;
+
 
 fetch("/api/transaction")
   .then(response => {
@@ -144,6 +146,10 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
+
+    //check for service worker 
+
+
     saveRecord(transaction);
 
     // clear form
